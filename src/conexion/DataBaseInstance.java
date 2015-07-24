@@ -28,7 +28,7 @@ import sistema.Service;
  */
 
 public final class DataBaseInstance {
-    private static Connection cn = null;
+    private static final Connection cn = null;
     private static Connection conn;
     
     public static String basedatosConf=null;
@@ -36,7 +36,14 @@ public final class DataBaseInstance {
     public static String contraseñaConf=null;
     public static String hostConf=null;
     public static String portConf=null;
-    
+    /*
+        0=VERSION
+        1=HOST
+        2=PORT
+        3=BASEDATOS
+        4=USUARIO
+        5=CLAVE
+        */
     private static final String basedatos = "neomarket-v2";//Nombre de base de datos
     private static final String usuario = "neomarket";//Usuario de base de datos
     private static final String contraseña = "neomarket2015";//Contraseña de base de datos
@@ -80,43 +87,6 @@ public final class DataBaseInstance {
         }
         System.out.println(conn);
         return conn;
-    }
-    
-    public static boolean conectar(){
-        try{
-            Class.forName(""+driver+"");
-
-            String link = "jdbc:mysql://"+hostConf+":3306/?user="+usuarioConf+"&password="+contraseña;
-            cn = DriverManager.getConnection(link);
-            
-        }catch(ClassNotFoundException ex){}        
-        catch(SQLException ex){
-            String msg = "";
-            if(ex.getErrorCode() == 1049)
-            {
-                msg = "La base de datos: "+basedatosConf+" no existe.";
-            }else if(ex.getErrorCode() == 1044)
-            {
-                msg = "El usuario: "+usuario+" no existe.";
-            }else if(ex.getErrorCode() == 1045)
-            {
-                msg = "Contraseña incorrecta.";
-            }else if(ex.getErrorCode() == 0)
-            {
-                msg = "La coneccion con la base de datos no se puede realizar.\nParece que el servidor de base de datos no esta activo.";
-            }
-            JOptionPane.showMessageDialog(null, msg, ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        
-        if(cn != null)
-        {
-             System.out.println("Coneccion Exitosa.... XD");
-             return true;
-        }
-        return false;
-           
     }
     
     //Metodo conexion a base de datos [Seccion 45]
