@@ -37,9 +37,9 @@ public final class DataBaseInstance {
     public static String hostConf=null;
     public static String portConf=null;
     
-    private static final String basedatos = "registroinformes2";//Nombre de base de datos
-    private static final String usuario = "labocar";//Usuario de base de datos
-    private static final String contraseña = "labocar2015";//Contraseña de base de datos
+    private static final String basedatos = "neomarket-v2";//Nombre de base de datos
+    private static final String usuario = "neomarket";//Usuario de base de datos
+    private static final String contraseña = "neomarket2015";//Contraseña de base de datos
     private static final String host = "localhost";//host
     private static final String port="3306";//Puerto de base de datos
     
