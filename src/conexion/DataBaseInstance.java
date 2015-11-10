@@ -44,7 +44,7 @@ public final class DataBaseInstance {
         4=USUARIO
         5=CLAVE
         */
-    private static final String basedatos = "neomarket-v2";//Nombre de base de datos
+    private static final String basedatos = "neomarket-v3.2";//Nombre de base de datos
     private static final String usuario = "neomarket";//Usuario de base de datos
     private static final String contraseña = "neomarket2015";//Contraseña de base de datos
     private static final String host = "localhost";//host
